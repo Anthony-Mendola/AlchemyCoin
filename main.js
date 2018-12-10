@@ -30,4 +30,16 @@ class Blockchain{
   createGenesisBlock(){
     return new Block(0, "01/01/2019", "Genesis block", "0");
   }
+
+  getLatestBlock(){
+    return this.chain(this.chain.length - 1);
+  }
+
+  addBlock(newBlock){
+    //sets the previoushash property of the new block to the last block hash on the chain
+    newBlock.previousHash = this.getLatestBlock().hash; 
+    //recalcuate the hash, if any changes occur to a block property, the hash should be changed
+    newBlock.hash = newBlock.calculateHash();
+    this.chain.push(newBlock);
+  }
 }
