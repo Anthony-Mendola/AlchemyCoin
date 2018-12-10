@@ -10,7 +10,7 @@ class Block{
     this.timestamp = timestamp;
     this.data = data;
     this.previousHash = previousHash;
-    this.hash = this.calculateHash;
+    this.hash = this.calculateHash();
   }
 //calculates the hash function of the block
 //takes the properties of the block runs through the hash function and returns the hash which identifies our block on the blockchain
