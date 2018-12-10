@@ -21,9 +21,13 @@ class Block{
 }
 //The constructor is responsible for initializing the blockchain
 //the chain property is an array of blocks
-//the first block on a blockchain is the genesis block which should be added manually
+
 class Blockchain{
   constructor(){
-    this.chain = [];
+    this.chain = [this.createGenesisBlock()];
+  }
+  //the first block on a blockchain is the genesis block which should be added manually
+  createGenesisBlock(){
+    return new Block(0, "01/01/2019", "Genesis block", "0");
   }
 }
