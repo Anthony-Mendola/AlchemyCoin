@@ -70,3 +70,8 @@ alchemyCoin.addBlock(new Block(2, '01/03/2019', { amount: 11}))
 
 console.log("Is blockhain valid? " + alchemyCoin.isChainValid());
 // console.log(JSON.stringify(alchemyCoin, null, 4));
+
+//tamper test
+alchemyCoin.chain[1].data = { amount: 100};
+alchemyCoin.chain[1].hash = alchemyCoin.chain[1].calculateHash();
+console.log("Is blockhain valid? " + alchemyCoin.isChainValid());
