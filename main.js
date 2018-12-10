@@ -42,6 +42,25 @@ class Blockchain{
     newBlock.hash = newBlock.calculateHash();
     this.chain.push(newBlock);
   }
+//to verify the integrity of our blockchain
+//blockchains are great because once a block is added, it cannont be changed without invaldating the rest of the chain
+  isChainValid(){
+    //block 0 is the Genesis block so set i = 1, loop to the end of the chain, increase by 1 everytime
+    for(let i = 1; i < this.chain.length; i++){
+      const currentBlock = this.chain[i]; //grab the current block by taking i position in the chain
+      const previousBlock = this.this.chain[i - 1]; //grab the previous block
+
+      //is the hash of the block still valid?
+      if (currentBlock.hash != currentBlock.calculateHash()){
+        return false;
+      }
+      //does the previousHash on our current block match the hash on the previous block?
+      if(currentBlock.previousHash != previousBlock.hash){
+        return false;
+      }
+    }
+    return true;
+  }
 }
 //usually it's not so easy to add a blockchain, just doing it this way for this simple app
 
