@@ -48,7 +48,7 @@ class Blockchain{
     //block 0 is the Genesis block so set i = 1, loop to the end of the chain, increase by 1 everytime
     for(let i = 1; i < this.chain.length; i++){
       const currentBlock = this.chain[i]; //grab the current block by taking i position in the chain
-      const previousBlock = this.this.chain[i - 1]; //grab the previous block
+      const previousBlock = this.chain[i - 1]; //grab the previous block
 
       //is the hash of the block still valid?
       if (currentBlock.hash != currentBlock.calculateHash()){
@@ -68,4 +68,5 @@ let alchemyCoin = new Blockchain();
 alchemyCoin.addBlock(new Block(1, '01/02/2019', { amount: 4}))
 alchemyCoin.addBlock(new Block(2, '01/03/2019', { amount: 11}))
 
-console.log(JSON.stringify(alchemyCoin, null, 4));
+console.log("Is blockhain valid? " + alchemyCoin.isChainValid());
+// console.log(JSON.stringify(alchemyCoin, null, 4));
