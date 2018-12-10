@@ -32,7 +32,7 @@ class Blockchain{
   }
 
   getLatestBlock(){
-    return this.chain(this.chain.length - 1);
+    return this.chain[this.chain.length - 1];
   }
 
   addBlock(newBlock){
@@ -43,3 +43,10 @@ class Blockchain{
     this.chain.push(newBlock);
   }
 }
+//usually it's not so easy to add a blockchain, just doing it this way for this simple app
+
+let alchemyCoin = new Blockchain();
+alchemyCoin.addBlock(new Block(1, '01/02/2019', { amount: 4}))
+alchemyCoin.addBlock(new Block(2, '01/03/2019', { amount: 11}))
+
+console.log(JSON.stringify(alchemyCoin, null, 4));
